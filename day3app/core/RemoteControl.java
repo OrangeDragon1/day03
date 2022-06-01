@@ -9,11 +9,10 @@ public class RemoteControl {
     }
     
     public void start() {
-        this.control
+        this.control.start();
     }
 
-    pubic void stop() {
-
-        
+    public void stop() {
+        this.control.stop();
     }
 }

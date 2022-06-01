@@ -6,8 +6,11 @@ public class Honda extends Car {
         this.make = "Honda";
     }
 
-    @Override
     public void accelerate() {
         System.out.println("Accelerating");
+    }
+
+    public void stop(Integer count) {
+        System.out.printf("Stopping in %d seconds...\n", count);
     }
 }

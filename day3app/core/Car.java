@@ -11,7 +11,7 @@ public class Car implements Controllable{
 
     // default contructor
     public Car() {
-        System.out.println("Instantiating car object");
+        System.out.println("Instantiating car object...");
         this.colour = "red";
     }
     // constructor that passes in values
@@ -23,11 +23,11 @@ public class Car implements Controllable{
         this.colour = c;
         this.make = brand;
     }
-
+    // getter
     public String getColour() {
         return colour;
     }
-
+    // setter
     public void setColour(String colour) {
         this.colour = colour;
     }
@@ -35,7 +35,6 @@ public class Car implements Controllable{
     public String getMake() {
         return make;
     }
-
     public void setMake(String make) {
         this.make = make;
     }
@@ -43,7 +42,6 @@ public class Car implements Controllable{
     public Integer getEngineCapacity() {
         return engineCapacity;
     }
-
     public void setEngineCapacity(Integer engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
@@ -51,17 +49,21 @@ public class Car implements Controllable{
     public Boolean isStarted() {
         return started;
     }
-
     public void setStarted(Boolean started) {
         this.started = started;
     }
 
-    // behaviour, methods
     public Long getDrivingDuration() {
+        Long currentTime = System.currentTimeMillis();
         if (this.started) {
-            return (System.currentTimeMillis() - this.startedSince) / 1000;
+            return (currentTime - this.startedSince);
+        } else {
+            return 1L;
         }
+        
     }
+
+    // behaviour, methods
     public void start() {
         if (this.started) {
             System.err.println("Your car is running.");
@@ -73,7 +75,7 @@ public class Car implements Controllable{
     }
 
     public void stop() {
-        if (this.started) {
+        if (!this.started) {
             System.out.println("Your car is not running.");
         } else {
             System.out.println("Splutter splutter stop...");
